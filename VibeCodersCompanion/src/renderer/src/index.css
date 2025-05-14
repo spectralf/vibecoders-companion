@@ -1,0 +1,369 @@
+/* Tailwind CSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles that extend Tailwind */
+@layer base {
+  :root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    color: #333;
+    background-color: #ffffff;
+    /* Prevent scrolling at the root level */
+    overflow: hidden;
+  }
+
+  /* Dark mode styles */
+  .dark {
+    color-scheme: dark;
+  }
+
+  .dark body {
+    @apply bg-dark-bg-secondary text-dark-text-primary;
+  }
+
+  /* Dark mode form controls */
+  .dark input[type="text"],
+  .dark input[type="email"],
+  .dark input[type="password"],
+  .dark input[type="number"],
+  .dark input[type="search"],
+  .dark input[type="tel"],
+  .dark input[type="url"],
+  .dark input[type="date"],
+  .dark input[type="datetime-local"],
+  .dark input[type="month"],
+  .dark input[type="week"],
+  .dark input[type="time"],
+  .dark textarea {
+    @apply bg-dark-bg-tertiary border-dark-border text-dark-text-primary;
+  }
+
+  .dark input[type="text"]:focus,
+  .dark input[type="email"]:focus,
+  .dark input[type="password"]:focus,
+  .dark input[type="number"]:focus,
+  .dark input[type="search"]:focus,
+  .dark input[type="tel"]:focus,
+  .dark input[type="url"]:focus,
+  .dark input[type="date"]:focus,
+  .dark input[type="datetime-local"]:focus,
+  .dark input[type="month"]:focus,
+  .dark input[type="week"]:focus,
+  .dark input[type="time"]:focus,
+  .dark textarea:focus {
+    @apply border-primary-light ring-primary-light ring-opacity-50;
+  }
+
+  /* Dark mode select dropdowns */
+  .dark select {
+    @apply bg-dark-bg-tertiary border-dark-border text-dark-text-primary;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23a0aec0' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    appearance: none;
+  }
+
+  .dark select:focus {
+    @apply border-primary-light ring-primary-light ring-opacity-50;
+  }
+
+  /* Dark mode range inputs (sliders) */
+  .dark input[type="range"] {
+    @apply bg-dark-bg-tertiary;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 0.5rem;
+    border-radius: 0.25rem;
+  }
+
+  .dark input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #3498db;
+    cursor: pointer;
+  }
+
+  .dark input[type="range"]::-moz-range-thumb {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #3498db;
+    cursor: pointer;
+    border: none;
+  }
+
+  .dark input[type="range"]:focus {
+    @apply outline-none;
+  }
+
+  /* Dark mode checkbox and radio */
+  .dark input[type="checkbox"],
+  .dark input[type="radio"] {
+    @apply border-dark-border bg-dark-bg-tertiary text-primary-light focus:ring-primary-light focus:ring-opacity-50;
+  }
+}
+
+/* Electron-specific scrollbar styles */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Custom component styles that extend Tailwind */
+@layer components {
+  /* Tag input area dark mode styling */
+  .dark .tags-container {
+    @apply bg-dark-bg-tertiary;
+  }
+
+  .dark .tag {
+    @apply bg-dark-bg-primary text-dark-text-primary border-dark-border;
+  }
+
+  .dark .tag button {
+    @apply text-dark-text-secondary hover:text-dark-text-primary;
+  }
+
+  .dark .inline-flex.items-center.px-2\.5.py-0\.5.rounded-full.text-xs.font-medium.bg-blue-100.text-blue-800 {
+    @apply bg-blue-900 text-blue-100;
+  }
+
+  .dark .inline-flex.items-center.justify-center.w-4.h-4.rounded-full.text-blue-400.hover\:bg-blue-200.hover\:text-blue-600 {
+    @apply text-blue-300 hover:bg-blue-800 hover:text-blue-100;
+  }
+
+  /* Form section backgrounds */
+  .dark .bg-gray-50 {
+    @apply bg-dark-bg-primary;
+  }
+
+  .dark .bg-white {
+    @apply bg-dark-bg-secondary;
+  }
+
+  /* Form text colors */
+  .dark .text-gray-700 {
+    @apply text-dark-text-primary;
+  }
+
+  .dark .text-gray-500 {
+    @apply text-dark-text-secondary;
+  }
+
+  .dark .text-gray-900 {
+    @apply text-dark-text-primary;
+  }
+
+  /* Feedback elements */
+  .dark .bg-green-100 {
+    @apply bg-green-900 bg-opacity-30;
+  }
+
+  .dark .text-green-800 {
+    @apply text-green-300;
+  }
+
+  .dark .bg-red-100 {
+    @apply bg-red-900 bg-opacity-30;
+  }
+
+  .dark .text-red-800 {
+    @apply text-red-300;
+  }
+
+  .dark .bg-blue-100 {
+    @apply bg-blue-900 bg-opacity-30;
+  }
+
+  .dark .text-blue-800 {
+    @apply text-blue-300;
+  }
+
+  .dark .bg-yellow-100 {
+    @apply bg-yellow-900 bg-opacity-30;
+  }
+
+  .dark .text-yellow-800 {
+    @apply text-yellow-300;
+  }
+
+  /* Disabled buttons */
+  .dark .bg-gray-300.text-gray-500.cursor-not-allowed {
+    @apply bg-dark-bg-tertiary text-dark-text-muted;
+  }
+
+  /* Borders */
+  .dark .border-gray-200,
+  .dark .border-gray-300 {
+    @apply border-dark-border;
+  }
+  a {
+    @apply font-medium text-primary no-underline dark:text-primary-light;
+  }
+
+  a:hover {
+    @apply text-primary-dark dark:text-primary;
+  }
+
+  h1 {
+    @apply text-2xl leading-tight dark:text-dark-text-primary;
+  }
+
+  h2 {
+    @apply text-xl leading-snug dark:text-dark-text-primary;
+  }
+
+  button {
+    @apply rounded border border-transparent px-4 py-2 text-base font-medium
+           bg-neutral-100 cursor-pointer transition-all duration-200 ease-in-out
+           dark:bg-dark-bg-tertiary dark:text-dark-text-primary dark:border-dark-border;
+  }
+
+  button:hover {
+    @apply bg-neutral-200 dark:bg-opacity-80;
+  }
+
+  button:focus,
+  button:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 dark:ring-primary-light dark:ring-offset-dark-bg-primary;
+  }
+
+  /* TipTap Task List Styling */
+  ul[data-type="taskList"] {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul[data-type="taskList"] li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.5em;
+    position: relative;
+  }
+
+  ul[data-type="taskList"] li > label {
+    margin-right: 0.5em;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  ul[data-type="taskList"] li > div {
+    flex: 1;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: inline;
+  }
+
+  /* Fix for task list checkbox spacing */
+  ul[data-type="taskList"] li > label input[type="checkbox"] {
+    margin: 0;
+    margin-right: 0.5em;
+  }
+
+  /* Make sure the content after checkbox is inline */
+  ul[data-type="taskList"] li > div > p {
+    display: inline;
+    margin: 0;
+  }
+
+  /* Additional fixes for task list behavior */
+  ul[data-type="taskList"] li > div[contenteditable="true"] {
+    display: inline;
+    min-height: 1.5em;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Make task list behave like bullet list */
+  ul[data-type="taskList"] {
+    padding-left: 1.5em;
+  }
+
+  ul[data-type="taskList"] li {
+    padding-left: 0;
+  }
+
+  /* Fix cursor positioning */
+  ul[data-type="taskList"] li > div::before {
+    content: "";
+    display: inline;
+    white-space: normal;
+  }
+
+  /* Override any default styles that might be causing issues */
+  .ProseMirror ul[data-type="taskList"] {
+    padding-left: 1.5em;
+  }
+
+  .ProseMirror ul[data-type="taskList"] li {
+    display: flex;
+    margin-bottom: 0.5em;
+  }
+
+  .ProseMirror ul[data-type="taskList"] li > label {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+  }
+
+  .ProseMirror ul[data-type="taskList"] li > div {
+    display: inline;
+    flex: 1;
+  }
+
+  /* Ensure paragraph content is inline */
+  .ProseMirror ul[data-type="taskList"] li > div > p {
+    display: inline;
+    margin: 0;
+  }
+
+  /* Editor content scrollbar styles */
+  .ProseMirror {
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  /* Ensure editor takes full height of container */
+  .tiptap {
+    height: 100%;
+  }
+}

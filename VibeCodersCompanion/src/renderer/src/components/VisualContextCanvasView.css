@@ -1,0 +1,59 @@
+.visual-context-canvas-view {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* Prevent scrolling at this level - scrolling is handled by app-content */
+  overflow: visible;
+  /* Account for scrollbar width in calculations */
+  box-sizing: border-box;
+}
+
+.visual-context-canvas-view h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.canvas-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Show scrollbars only when content exceeds container */
+  overflow: auto;
+  /* Use flexible height */
+  height: 500px;
+  /* Add responsive padding */
+  padding: 10px;
+  /* Ensure stable size with simpler flex approach */
+  flex: 1;
+  /* Prevent layout shifts */
+  transition: none !important;
+}
+
+/* Position the Konva stage within the container with relative positioning */
+.canvas-container .konvajs-content {
+  position: relative;
+  margin: 0 auto;
+  /* Ensure the stage doesn't move */
+  top: 0;
+  left: 0;
+}
+
+/* Properties Panel */
+.vcc-properties-panel {
+  /* Match canvas height */
+  height: 500px;
+  /* Allow scrolling when content exceeds height */
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Add responsive padding */
+  padding: 0 10px;
+  /* Ensure consistent width */
+  min-width: 250px;
+  width: 100%;
+}
+
+.property-group {
+  margin-bottom: 1rem;
+}
